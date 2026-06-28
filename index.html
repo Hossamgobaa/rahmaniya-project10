@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دليل الرحمانية</title>
+<meta name="description" content="دليل خدمات الرحمانية — أطباء، صيدليات، مستشفيات، مطاعم، أسواق، خدمات توصيل، وأرقام طوارئ في مكان واحد.">
+<meta name="theme-color" content="#0B2A4A">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Firebase (App + Firestore فقط — صفحة الزوار لا تحتاج تسجيل دخول) -->
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-row" id="logoHome">
+      <div class="logo-mark"><i class="fa-solid fa-location-dot"></i></div>
+      <span class="logo-text">دليل الرحمانية</span>
+    </div>
+    <div class="search-wrap">
+      <div class="search-bar"><i class="fa-solid fa-magnifying-glass"></i><input id="searchInput" placeholder="ابحث عن خدمة أو نشاط، مثال: طبيب أطفال"></div>
+    </div>
+    <nav class="nav-links">
+      <a data-nav="specialties">الأطباء</a>
+      <a data-nav="pharmacies">الصيدليات</a>
+      <a data-nav="restaurants">المطاعم</a>
+      <a data-nav="supermarkets">السوبر ماركت</a>
+      <a data-nav="shops">المحلات</a>
+    </nav>
+    <a class="emergency-quick" data-nav="emergency"><i class="fa-solid fa-phone-volume"></i> <span>طوارئ</span></a>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<nav class="bottom-nav">
+  <button class="nav-item" id="nav-home" data-bottom-nav="home"><i class="fa-solid fa-house"></i>الرئيسية</button>
+  <button class="nav-item" id="nav-fav" data-bottom-nav="favorites"><i class="fa-solid fa-heart"></i>المفضلة</button>
+  <button class="nav-fab" data-bottom-nav="addActivity"><i class="fa-solid fa-plus"></i></button>
+  <button class="nav-item" id="nav-offers" data-bottom-nav="offers"><i class="fa-solid fa-tags"></i>العروض</button>
+  <button class="nav-item" id="nav-more" data-bottom-nav="more"><i class="fa-solid fa-bars"></i>المزيد</button>
+</nav>
+
+<div id="toast"></div>
+
+<!-- نموذج إضافة نشاط (عام) -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>إضافة نشاط جديد</h3>
+      <button class="icon-btn" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="addForm">
+      <div class="form-group"><label>اسم النشاط</label><input type="text" placeholder="مثال: عيادة الدكتور محمد" required></div>
+      <div class="form-group"><label>التصنيف</label>
+        <select required>
+          <option value="">اختر التصنيف</option>
+          <option>أطباء وعيادات</option>
+          <option>صيدليات</option>
+          <option>مطاعم وكافيهات</option>
+          <option>سوبر ماركت</option>
+          <option>محلات تجارية</option>
+          <option>خدمات توصيل</option>
+        </select>
+      </div>
+      <div class="form-group"><label>رقم الهاتف</label><input type="tel" placeholder="01xxxxxxxxx" required></div>
+      <div class="form-group"><label>العنوان</label><input type="text" placeholder="الحي، الشارع" required></div>
+      <button type="submit" class="btn-submit">إرسال للمراجعة</button>
+    </form>
+  </div>
+</div>
+
+<script src="firebase/firebase-config.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

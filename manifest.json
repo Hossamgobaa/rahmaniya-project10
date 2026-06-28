@@ -1,0 +1,27 @@
+{
+  "name": "دليل الرحمانية",
+  "short_name": "دليل الرحمانية",
+  "description": "دليل خدمات الرحمانية — أطباء، صيدليات، مستشفيات، مطاعم، أسواق، خدمات توصيل، وأرقام طوارئ في مكان واحد.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F6F9",
+  "theme_color": "#0B2A4A",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
